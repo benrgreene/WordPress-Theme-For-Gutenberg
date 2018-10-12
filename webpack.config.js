@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
     entry: {
         'sidebar': './blocks/sidebar/src/index.js',
-        'admin': './scripts/src/admin.js'
+        'admin': './scripts/src/admin.js',
+        'main': './styles/index.scss'
     },
     output: {
         filename: '[name].build.js',
@@ -19,10 +20,31 @@ module.exports = {
                 }
             },
             {
-                test:/\.css$/,
-                use:['style-loader','css-loader']
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: "assets/[name].css",
+                        },
+                    },
+                    {
+                        loader: "extract-loader",
+                        options: {
+                            publicPath: "../",
+                        }
+                    },
+                    {
+                        loader: "css-loader",
+                    },
+                    {
+                        loader: "sass-loader", options: {
+                            sourceMap: true
+                        } 
+                    }
+                ],
             }
         ]
     },
-    mode: 'development'
+    mode: 'production'
 }

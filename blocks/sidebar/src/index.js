@@ -1,5 +1,3 @@
-import './styles/style.css';
-
 const { registerBlockType} = wp.blocks;
 const { InnerBlocks } = wp.editor;
 

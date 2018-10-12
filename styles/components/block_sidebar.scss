@@ -1,0 +1,9 @@
+.sidebar-block {
+  display: flex;
+
+  .sidebar-block__sidebar {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 30%;
+  }
+}
