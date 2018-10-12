@@ -3,10 +3,11 @@ const path = require('path');
 module.exports = {
     entry: {
         'sidebar': './blocks/sidebar/src/index.js',
+        'admin': './scripts/src/admin.js'
     },
     output: {
         filename: '[name].build.js',
-        path: path.resolve(__dirname, 'blocks/build')
+        path: path.resolve(__dirname, 'scripts/build')
     }, 
     module: {
         rules: [

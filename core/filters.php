@@ -16,3 +16,8 @@ function brg_set_body_classes( $classes ) {
 add_filter( 'the_content', function( $content ) {
   return $content;
 });
+
+add_action( 'admin_enqueue_scripts', 'brg_add_editor_scripts' );
+function brg_add_editor_scripts() {
+  wp_enqueue_script( 'brg-editor-script', get_template_directory_uri() . '/scripts/build/admin.build.js', array( 'wp-blocks', 'wp-editor' ) );
+}
