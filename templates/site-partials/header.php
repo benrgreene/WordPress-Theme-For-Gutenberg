@@ -14,7 +14,7 @@
   </head>
   <body class="<?php echo apply_filters('brg/body_class', ''); ?>">
     <div class='site-header'>
-      <div class='l-contain'>
+      <div class='l-contain site-header__content'>
         <h1 class="site-title"><a class='site-logo' href="<?php echo get_site_url(); ?>">
           <?php bloginfo( 'name' ); ?>
         </a></h1>

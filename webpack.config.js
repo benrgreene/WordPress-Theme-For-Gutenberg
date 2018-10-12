@@ -2,8 +2,13 @@ const path = require('path');
 
 module.exports = {
     entry: {
+        // Main front facing script
+        'index': './scripts/src/index.js',
+        // This is the sidebar Gutenberg block editor script
         'sidebar': './blocks/sidebar/src/index.js',
+        // Admin script for adding Gutenberg settings to blocks
         'admin': './scripts/src/admin.js',
+        // Styles
         'main': './styles/index.scss'
     },
     output: {

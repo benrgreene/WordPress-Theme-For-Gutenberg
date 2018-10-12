@@ -1,1 +1,8 @@
-@import 'components/block_sidebar.scss'
+@import 'helpers/variables.scss';
+@import 'helpers/mixins.scss';
+@import 'helpers/reset.scss';
+
+@import 'components/block_sidebar.scss';
+@import 'components/containers.scss';
+@import 'components/header.scss';
+@import 'components/menu.scss';
