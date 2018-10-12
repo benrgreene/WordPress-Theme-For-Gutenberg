@@ -9,6 +9,7 @@
     <title><?php brg_the_title(); ?></title>
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/img/favicon.ico'; ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/styles/index.css'; ?>" >
     <?php load_theme_info(); ?>
   </head>
   <body class="<?php echo apply_filters('brg/body_class', ''); ?>">

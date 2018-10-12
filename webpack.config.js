@@ -8,7 +8,7 @@ module.exports = {
     },
     output: {
         filename: '[name].build.js',
-        path: path.resolve(__dirname, 'scripts/build')
+        path: path.resolve(__dirname, 'assets')
     }, 
     module: {
         rules: [
@@ -25,7 +25,7 @@ module.exports = {
                     {
                         loader: "file-loader",
                         options: {
-                            name: "assets/[name].css",
+                            name: "styles/[name].css",
                         },
                     },
                     {
