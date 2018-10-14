@@ -30,23 +30,21 @@
 }
 
 .site-nav-menu {
-  display: block;
   flex-grow: 0;
-  max-width: 100%;
   line-height: 75px;
-  text-align: right;
 }
 
 .site-nav-menu ul.menu {
   display: flex;
   justify-content: flex-end;
+  list-style-type: none;
 }
 
 .site-nav-menu ul li {
   margin-left: 15px;
 }
 
-@media(max-width: 770px) {
+@media(max-width: $bp-mobile) {
   .site-header .l-contain .site-logo {
     margin: auto;
   }

@@ -4,7 +4,7 @@
 add_filter( 'brg/fonts', 'brg_set_site_fonts' );
 function brg_set_site_fonts( $fonts ) {
   $fonts = array_merge( $fonts, array (
-    'Baloo+Thambi', 'Ubuntu', 'Orbitron'
+    'Open+Sans', 'Source+Sans+Pro'
   ));
   return $fonts;
 }

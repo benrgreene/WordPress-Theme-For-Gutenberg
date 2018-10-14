@@ -7,9 +7,16 @@
 html, body {
   overflow-x: hidden; }
 
+body {
+  min-height: 100vh; }
+
 .button,
 button {
   -webkit-appearance: none; }
+
+@media (min-width: 770px) {
+  .mobile-only {
+    display: none; } }
 
 .sidebar-block {
   display: flex; }
@@ -19,6 +26,13 @@ button {
     flex-shrink: 0;
     flex-grow: 0;
     flex-basis: 30%; }
+
+body {
+  display: flex;
+  flex-direction: column; }
+
+.site-content {
+  flex-grow: 1; }
 
 .l-contain {
   margin: auto;
@@ -53,15 +67,13 @@ button {
   display: inline-block; }
 
 .site-nav-menu {
-  display: block;
   flex-grow: 0;
-  max-width: 100%;
-  line-height: 75px;
-  text-align: right; }
+  line-height: 75px; }
 
 .site-nav-menu ul.menu {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  list-style-type: none; }
 
 .site-nav-menu ul li {
   margin-left: 15px; }
@@ -117,7 +129,7 @@ button {
     top: 100%;
     display: none;
     padding: 10px 20px;
-    background-color: #EEE;
+    background-color: #FFF;
     box-shadow: 1px 1px 10px black; } }
 
 /*

@@ -1,3 +1,12 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-content {
+  flex-grow: 1;
+}
+
 .l-contain {
   margin: auto;
   width: 100%;

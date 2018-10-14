@@ -29,7 +29,7 @@
   display: none;
 }
 
-@media(min-width: 771px) {
+@media(min-width: $bp-mobile) {
   .site-header .menu > .menu-item + .menu-item {
     margin-left: 15px;
   }
@@ -44,7 +44,7 @@
     top: 100%;
     display: none;
     padding: 10px 20px;
-    background-color: #EEE;
+    background-color: #FFF;
     box-shadow: 1px 1px 10px black;
   }
 }
@@ -53,7 +53,7 @@
   Mobile Styles
 */
 
-@media(max-width: 770px) {
+@media(max-width: $bp-mobile) {
   .site-header .menu {
     position: fixed;
     left: 0;
