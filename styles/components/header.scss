@@ -1,8 +1,11 @@
+.is-logged-in {
+  .site-header.fixed {
+    top: 30px;
+  }
+}
+
 .site-header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  position: relative;
   z-index: 100;
   background-color: #FFF;
   box-shadow: 1px 1px 10px black;
@@ -12,6 +15,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -60,11 +70,4 @@
   .site-nav-menu ul {
     justify-content: center;
   }
-}
-
-/*
-  Admin Stuff
-*/
-.is-logged-in .site-header {
-  top: 30px;
 }

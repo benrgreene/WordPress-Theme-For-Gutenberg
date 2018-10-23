@@ -1,6 +1,10 @@
 .sidebar-block {
   display: flex;
 
+  &.fixed {
+    padding-top: 0;
+  }
+
   .sidebar-block__content {
     flex-grow: 1;
   }

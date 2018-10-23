@@ -20,6 +20,8 @@ button {
 
 .sidebar-block {
   display: flex; }
+  .sidebar-block.fixed {
+    padding-top: 0; }
   .sidebar-block .sidebar-block__content {
     flex-grow: 1; }
   .sidebar-block .sidebar-block__sidebar {
@@ -41,11 +43,19 @@ body {
   padding-left: 20px;
   padding-right: 20px; }
 
+.site-footer {
+  padding: 20px 0; }
+  .site-footer .footer-widgets {
+    display: flex;
+    justify-content: space-between; }
+    .site-footer .footer-widgets ul, .site-footer .footer-widgets ol {
+      list-style-type: none; }
+
+.is-logged-in .site-header.fixed {
+  top: 30px; }
+
 .site-header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  position: relative;
   z-index: 100;
   background-color: #FFF;
   box-shadow: 1px 1px 10px black; }
@@ -54,6 +64,11 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 15px; }
+  .site-header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; }
 
 .site-title {
   margin: 0; }
@@ -88,12 +103,6 @@ body {
   .site-nav-menu ul {
     justify-content: center; } }
 
-/*
-  Admin Stuff
-*/
-.is-logged-in .site-header {
-  top: 30px; }
-
 .menu {
   display: flex;
   justify-content: flex-end;
@@ -118,7 +127,7 @@ body {
 .sub-menu__toggle {
   display: none; }
 
-@media (min-width: 771px) {
+@media (min-width: 770px) {
   .site-header .menu > .menu-item + .menu-item {
     margin-left: 15px; }
   .site-header .sub-menu .menu-item + .menu-item {

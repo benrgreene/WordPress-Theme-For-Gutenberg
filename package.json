@@ -5,6 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "build": "webpack",
+    "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben Greene",
