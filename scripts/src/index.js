@@ -6,20 +6,18 @@ const siteContent = document.querySelectorAll('.site-content')[0]
 
 // Basic theme setup
 document.addEventListener("DOMContentLoaded", (event) => {
-  // Need to set the top padding of the content to match the size of the header
-  setTimeout(function() {
-    let padding     = document.querySelectorAll('.site-header')[0].clientHeight
-    let siteContent = document.querySelectorAll('.site-content')[0]
-    let newStyle    = document.createElement('div')
-    newStyle.innerHTML = `<style>.site-content.fixed { padding-top: ${padding}px }</style>`
-    document.body.appendChild(newStyle)
-  }, 10)
-
   // Setup for the container block attributes
   const allContainerBlocks = document.querySelectorAll('.page-content > *')
   allContainerBlocks.forEach((block) => {
-    let containerType = block.getAttribute('container') || 'full-width'
-    block.classList.add(containerType)
+    let containerType = block.getAttribute('container') || 'contained'
+    switch (containerType) {
+      case 'contained':
+        block.classList.add('l-contain')
+        break
+      default:
+        block.classList.add('full-width')
+        break
+    }
   })
 
   // Now let's check if the page loaded NOT at the top (reload or something)
@@ -40,5 +38,13 @@ function checkScrollPosition() {
   } else {
     siteHeader.classList.add('fixed')
     siteContent.classList.add('fixed')
+    setHeaderPadding()
   }
+}
+
+function setHeaderPadding() {
+  let padding     = document.querySelectorAll('.site-header')[0].clientHeight
+  let newStyle    = document.createElement('div')
+  newStyle.innerHTML = `<style>.site-content.fixed { padding-top: ${padding}px }</style>`
+  document.body.appendChild(newStyle)
 }
