@@ -1,0 +1,17 @@
+.site-header {
+  background-color: primary_theme_color;
+  color: header_theme_color;
+}
+
+.site-header a {
+  color: inherit;
+}
+
+.site-footer {
+  background-color: footer_background_color;
+  color: footer_foreground_color;
+}
+
+.site-footer a {
+  color: inherit;
+}

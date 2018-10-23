@@ -25,8 +25,12 @@ function brg_add_editor_scripts() {
   wp_enqueue_script( 'brg-editor-script', get_template_directory_uri() . '/assets/admin.build.js', array( 'wp-blocks', 'wp-editor' ) );  
 }
 
-// Need to add the theme scripts
+// Need to add the theme scripts/styles
 add_action( 'wp_enqueue_scripts', 'brg_add_theme_scripts' );
 function brg_add_theme_scripts() {
+  // Styling
+  wp_enqueue_style( 'brg-theme-styles', get_template_directory_uri() . '/assets/styles/index.css' );
+  wp_enqueue_style( 'brg-user-defined-styles', get_template_directory_uri() . '/assets/styles/theme-styles.css' );
+  // Scripts
   wp_enqueue_script( 'brg-theme-script', get_template_directory_uri() . '/assets/index.build.js', array(), false, true );  
 }
