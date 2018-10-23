@@ -10,6 +10,17 @@
   background-color: #FFF;
   box-shadow: 1px 1px 10px black;
 
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .site-nav-menu { 
+      line-height: 50px;
+    }
+  }
+
   .site-header__content {
     display: flex;
     align-items: center;
@@ -17,11 +28,10 @@
     padding: 0 15px;
   }
 
-  &.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+  .site-nav-menu {
+    flex-grow: 0;
+    line-height: 75px;
+    transition: line-height ease .2s;
   }
 }
 
@@ -37,11 +47,6 @@
 .site-logo {
   flex-shrink: 1;
   display: inline-block;
-}
-
-.site-nav-menu {
-  flex-grow: 0;
-  line-height: 75px;
 }
 
 .site-nav-menu ul.menu {

@@ -59,16 +59,22 @@ body {
   z-index: 100;
   background-color: #FFF;
   box-shadow: 1px 1px 10px black; }
-  .site-header .site-header__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px; }
   .site-header.fixed {
     position: fixed;
     top: 0;
     left: 0;
     right: 0; }
+    .site-header.fixed .site-nav-menu {
+      line-height: 50px; }
+  .site-header .site-header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px; }
+  .site-header .site-nav-menu {
+    flex-grow: 0;
+    line-height: 75px;
+    transition: line-height ease .2s; }
 
 .site-title {
   margin: 0; }
@@ -80,10 +86,6 @@ body {
 .site-logo {
   flex-shrink: 1;
   display: inline-block; }
-
-.site-nav-menu {
-  flex-grow: 0;
-  line-height: 75px; }
 
 .site-nav-menu ul.menu {
   display: flex;
