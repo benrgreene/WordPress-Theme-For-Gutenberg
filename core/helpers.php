@@ -11,15 +11,13 @@ function brg_the_title() {
 
 // load any extra theme content in the header
 function load_theme_info() {
-  $font_names = apply_filters( 'brg/fonts', array () );
-  foreach( $font_names as $file ) {
-      echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=<?php echo $file; ?>"/>';
-  }
+  $fonts = apply_filters( 'brg/fonts', array () );
+  echo sprintf('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=%s"/>', implode( '|', $fonts ) );
 }
 
 // echo out the title of the page
 function brg_the_page_title() {
-  echo sprintf( '<h1 class="page-title">%s</h1>', get_the_title() );
+  echo sprintf( '<div class="l-contain"><h1 class="page-title">%s</h1></div>', get_the_title() );
 }
 
 // Check if there is a sidebar set for the page/post

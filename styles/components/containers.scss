@@ -7,8 +7,17 @@ body {
   flex-grow: 1;
 }
 
+.spaced {
+  margin-top: 15px;
+
+  &__double {
+    margin-top: 30px;
+  }
+}
+
 .l-contain {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 1030px;
 }

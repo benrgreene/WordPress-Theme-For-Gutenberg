@@ -18,6 +18,16 @@ button {
   .mobile-only {
     display: none; } }
 
+ul,
+ol {
+  list-style-type: none; }
+  ul li,
+  ol li {
+    padding-left: 30px; }
+  ul li + li,
+  ol li + li {
+    margin-top: 5px; }
+
 .sidebar-block {
   display: flex; }
   .sidebar-block.fixed {
@@ -36,8 +46,14 @@ body {
 .site-content {
   flex-grow: 1; }
 
+.spaced {
+  margin-top: 15px; }
+  .spaced__double {
+    margin-top: 30px; }
+
 .l-contain {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   max-width: 1030px; }
 

@@ -7,9 +7,10 @@ const siteContent = document.querySelectorAll('.site-content')[0]
 // Basic theme setup
 document.addEventListener("DOMContentLoaded", (event) => {
   // Setup for the container block attributes
-  const allContainerBlocks = document.querySelectorAll('.page-content > *')
+  const allContainerBlocks = document.querySelectorAll('.page-content > * + *')
   allContainerBlocks.forEach((block) => {
-    let containerType = block.getAttribute('container') || 'contained'
+    let containerType   = block.getAttribute('container') || 'contained'
+    let verticalSpacing = block.getAttribute('verticalSpace') || 'spaced'
     switch (containerType) {
       case 'contained':
         block.classList.add('l-contain')
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         block.classList.add('full-width')
         break
     }
+    block.classList.add(verticalSpacing)
   })
 
   // Now let's check if the page loaded NOT at the top (reload or something)

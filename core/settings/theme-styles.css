@@ -3,6 +3,11 @@
   color: header_theme_color;
 }
 
+.page-title {
+  border-bottom: 2px solid primary_theme_color;
+  color: primary_theme_color;
+}
+
 .site-header a {
   color: inherit;
 }

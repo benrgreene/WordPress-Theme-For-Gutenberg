@@ -13,13 +13,25 @@ const withInspectorControls =  createHigherOrderComponent( ( BlockEdit ) => {
         <BlockEdit { ...props } />
         <InspectorControls>
           <PanelBody>
-          Set Layout Type:
-            <select onChange = { (event) => {
-              props.setAttributes({container: event.target.value });
-            }} value={props.attributes.container}>
-              <option value="contained">Contained</option>
-              <option value="full-width">Full Width</option>
-            </select>
+            <div>
+              <div>Set Layout Type:</div>
+              <select onChange = { (event) => {
+                props.setAttributes({container: event.target.value });
+              }} value={props.attributes.container}>
+                <option value="contained">Contained</option>
+                <option value="full-width">Full Width</option>
+              </select>
+            </div><br/>
+            <div> 
+              <div>Set Vertical Spacing:</div>
+              <select onChange = { (event) => {
+                props.setAttributes({verticalSpace: event.target.value });
+              }} value={props.attributes.verticalSpace}>
+                <option value="spaced">Spaced</option>
+                <option value="spaced__double">Double Spacing</option>
+                <option value="no-space">No Space</option>
+              </select>
+            </div>
           </PanelBody>
         </InspectorControls>
       </Fragment>
@@ -38,14 +50,22 @@ function setContainerValidation (block, blockType, innerHTML) {
     type: 'string',
     default: 'contained'
   }
+  blockType.attributes.verticalSpace = {
+    type: 'string',
+    default: 'spaced'
+  }
   // get the current blocks container type
   let dummyEl = document.createElement('div')
-  dummyEl.innerHTML = innerHTML
-  let blockElement = dummyEl.firstChild
-  let containerType = blockElement.getAttribute('container') || false
+  dummyEl.innerHTML   = innerHTML
+  let blockElement    = dummyEl.firstChild
+  let containerType   = blockElement.getAttribute('container') || false
+  let verticalSpacing = blockElement.getAttribute('verticalSpace') || 'spaced'
   // set that container type
   if (containerType) {
     block.container = containerType
+  }
+  if (verticalSpacing) {
+    block.verticalSpace = verticalSpacing
   }
   return block
 }
@@ -56,6 +76,7 @@ wp.hooks.addFilter('blocks.getBlockAttributes', 'brg-theme/validate-container-at
  */
 function setContainerAttribute (el, type, atts) {
   el.props.container = atts.container
+  el.props.verticalSpace = atts.verticalSpace
   return el;
 }
 wp.hooks.addFilter('blocks.getSaveElement', 'brg-theme/save-container-attributes', setContainerAttribute);
