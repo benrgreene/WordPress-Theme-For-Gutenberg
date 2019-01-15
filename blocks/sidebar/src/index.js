@@ -10,7 +10,7 @@ registerBlockType(
     icon: 'format-image',
     edit({attributes, className, setAttributes}) { 
       return (
-        <div className="editor--sidebar-block">
+        <div className="editor--sidebar-block" style={{backgroundColor: '#F4F4F4'}}>
           <InnerBlocks />
         </div>
       );

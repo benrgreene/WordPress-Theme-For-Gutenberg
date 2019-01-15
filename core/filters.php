@@ -20,7 +20,7 @@ function brg_set_body_classes( $classes ) {
 }
 
 // Add our admin scripts to the page
-add_action( 'admin_enqueue_scripts', 'brg_add_editor_scripts' );
+add_action( 'admin_enqueue_scripts', 'brg_add_editor_scripts', 5 );
 function brg_add_editor_scripts() {
   wp_enqueue_script( 'brg-editor-script', get_template_directory_uri() . '/assets/admin.build.js', array( 'wp-blocks', 'wp-editor' ) );  
 }

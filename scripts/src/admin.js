@@ -58,7 +58,7 @@ function setContainerValidation (block, blockType, innerHTML) {
   let dummyEl = document.createElement('div')
   dummyEl.innerHTML   = innerHTML
   let blockElement    = dummyEl.firstChild
-  let containerType   = blockElement.getAttribute('container') || false
+  let containerType   = blockElement.getAttribute('container') || 'contained'
   let verticalSpacing = blockElement.getAttribute('verticalSpace') || 'spaced'
   // set that container type
   if (containerType) {
@@ -75,8 +75,8 @@ wp.hooks.addFilter('blocks.getBlockAttributes', 'brg-theme/validate-container-at
  *  Need to set the new attribute value to save
  */
 function setContainerAttribute (el, type, atts) {
-  el.props.container = atts.container
-  el.props.verticalSpace = atts.verticalSpace
+  el.props.container = atts.container || 'contained'
+  el.props.verticalSpace = atts.verticalSpace || 'spaced'
   return el;
 }
 wp.hooks.addFilter('blocks.getSaveElement', 'brg-theme/save-container-attributes', setContainerAttribute);
