@@ -4,12 +4,16 @@ module.exports = {
     entry: {
         // Main front facing script
         'index': './scripts/src/index.js',
-        // This is the sidebar Gutenberg block editor script
-        'sidebar': './blocks/sidebar/src/index.js',
+        // This is the Gutenberg blocks
+        'gutenblocks': './blocks/index.js',
         // Admin script for adding Gutenberg settings to blocks
         'admin': './scripts/src/admin.js',
+        // template level scripts
+        'home': './scripts/src/templates/home.js',
+        'collection': './scripts/src/templates/collection.js',
+        'post': './scripts/src/templates/post.js',
         // Styles
-        'main': './styles/index.scss'
+        // 'main': './styles/index.scss'
     },
     output: {
         filename: '[name].build.js',

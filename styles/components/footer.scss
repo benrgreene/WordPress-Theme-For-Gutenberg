@@ -1,6 +1,12 @@
 .site-footer {
   padding: 20px 0;
+  color: $color-white;
+  background-color: $color-black;
   
+  a {
+    color: $color-white;
+  }
+
   .footer-widgets {
     display: flex;
     justify-content: space-between;

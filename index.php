@@ -9,10 +9,6 @@ if( is_page() ) {
 else if( is_single() ) {
   get_template_part( 'templates/fulls/post' );
 }
-else if( is_archive() ) {
-  get_template_part( 'templates/fulls/archive' );
-}
-  
 
 do_action( 'brg/after-page-content' );
 get_template_part( 'templates/site-partials/footer' );

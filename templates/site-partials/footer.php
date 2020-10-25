@@ -1,9 +1,11 @@
     </div>
-    <div class='site-footer'>
+    <section class="instagram-feed" data-instagram-feed>
+    </section>
+    <footer class='site-footer'>
       <div class='l-contain footer-widgets'>
         <?php dynamic_sidebar( 'brg_footer_widgets' ); ?>
       </div>
-    </div>
+    </footer>
     <?php do_action('wp_footer'); ?>
   </body>
 </html>
