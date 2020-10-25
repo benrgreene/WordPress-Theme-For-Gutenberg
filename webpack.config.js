@@ -12,6 +12,7 @@ module.exports = {
         'home': './scripts/src/templates/home.js',
         'collection': './scripts/src/templates/collection.js',
         'post': './scripts/src/templates/post.js',
+        'podcastfeed': './scripts/src/templates/podcastfeed.js',
         // Styles
         // 'main': './styles/index.scss'
     },
