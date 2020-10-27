@@ -10,6 +10,14 @@ This is a custom block that adds the page's selected sidebar next to the content
 
 This block does allow for child blocks, meaning that you can add sliders, multiple paragrahs, lists, whatever you want!
 
+### Archive
+
+This adds a paginated list of post tiles. the number of posts displayed and the post type are both administratable. 
+
+### Audio Feed
+
+Adds a podcast feed to the page. At the current time, only RSS feeds from libsyn are supported.
+
 ## Custom Block Settings
 
 ### Layout Type

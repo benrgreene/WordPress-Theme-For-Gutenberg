@@ -8,11 +8,12 @@ registerBlockType(
     title: 'Archive Block',
     description: 'Adds an archive for a post type',
     category: 'layout',
-    icon: 'format-image',
+    icon: 'book-alt',
     edit({attributes, className, isSelected, setAttributes}) { 
       return [
-        <div data-archive>
-          Archive container for {attributes['data-post-type']}
+        <div data-archive data-post-type={attributes['data-post-type']} data-per-page={attributes['data-per-page']}>
+          <div data-post-wrapper></div>
+          <div data-pagination></div>
         </div>
       ];
     },

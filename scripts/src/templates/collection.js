@@ -1,3 +1,3 @@
 import Archive from '../components/archive.js';
 
-Archive.setup();
+document.addEventListener('DOMContentLoaded', Archive.setup);

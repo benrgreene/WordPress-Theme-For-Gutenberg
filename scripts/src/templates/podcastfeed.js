@@ -73,7 +73,8 @@ const buildPagination = (episodes, perPage) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const feed = document.querySelector(`[${dom.feedSource}]`);
+  const feed = document.querySelector(`[${dom.feedSource}]`) || false;
+  if (!feed) return;
   const perPage = parseInt(feed.getAttribute('data-per-page'), 10);
   fetch(feed.getAttribute(dom.feedSource))
     .then((blob) => blob.text())
