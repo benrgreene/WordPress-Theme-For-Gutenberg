@@ -10,16 +10,19 @@ registerBlockType(
     icon: 'controls-volumeon',
     edit({attributes, className, setAttributes}) { 
       return (
-        <div className="editor--sidebar-block" style={{backgroundColor: '#FBFBFB'}}>
-          Podcast Feed
+        <div className="editor--sidebar-block" style={{backgroundColor: '#FBFBFB', padding: '10px 4px'}}>
+          <div data-feed-url={attributes['data-feed-url']} data-per-page={attributes['data-per-page']}>
+            <div data-podcast-feed="true"></div>
+            <div data-podcast-pagination="true"></div>
+          </div>
         </div>
       );
     },
     save({attributes}) {
       return (
         <div>
-          <div data-podcast-feed></div>
-          <div data-podcast-pagination></div>
+          <div data-podcast-feed="true"></div>
+          <div data-podcast-pagination="true"></div>
         </div>
       );
     }

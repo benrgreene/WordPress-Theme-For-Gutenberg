@@ -25,7 +25,6 @@ const withInspectorControls = createHigherOrderComponent(( BlockEdit ) => {
                        value={props.attributes['data-feed-url'] || ''}/>
                 </div>
               </div>
-              <hr/>
               <div><label for="number-per-page">Number Per Page</label></div>
               <div>
                 <input onChange={(event) => {
@@ -60,7 +59,7 @@ function setContainerValidation (block, blockType, innerHTML) {
     let blockElement  = dummyEl.firstChild;
 
     const blockTypeAttributes = [
-      { 'name': 'data-post-type', 'type': 'string' },
+      { 'name': 'data-feed-url', 'type': 'string' },
       { 'name': 'data-per-page', 'type': 'number' },
     ];
 

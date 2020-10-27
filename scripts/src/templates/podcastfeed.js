@@ -5,6 +5,8 @@ const dom = {
   pageOn: 'data-page-on',
   previous: 'data-pagination-previous',
   next: 'data-pagination-next',
+  numberPages: 'data-number-pages',
+  displayPage: 'data-display-page',
 };
 
 const loadPageOfResults = (feedData, pageNumber, perPage) => {
@@ -63,7 +65,10 @@ const buildPagination = (episodes, perPage) => {
   const paginationWrapper = document.querySelector(`[${dom.pagination}]`);
   const prev = buildButton(episodes, 'Previous', dom.previous, perPage, -1);
   const next = buildButton(episodes, 'Next', dom.next, perPage, 1);
+  const pageOn = document.createElement('div');
+  pageOn.innerHTML = `<span ${dom.displayPage}>1</span> <span ${dom.numberPages}>${Math.ceil(episodes.length / perPage)}</span>`;
   paginationWrapper.appendChild(prev);
+  paginationWrapper.appendChild(pageOn);
   paginationWrapper.appendChild(next);
 };
 
