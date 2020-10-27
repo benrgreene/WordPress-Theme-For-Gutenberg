@@ -1,6 +1,4 @@
-    </div>
-    <section class="instagram-feed" data-instagram-feed>
-    </section>
+    </main>
     <footer class='site-footer'>
       <div class='l-contain footer-widgets'>
         <?php dynamic_sidebar( 'brg_footer_widgets' ); ?>

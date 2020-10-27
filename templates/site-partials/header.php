@@ -12,18 +12,20 @@
     <?php load_theme_info(); ?>
   </head>
   <body class="<?php echo apply_filters('brg/body_class', ''); ?>">
-    <div class='site-header'>
+    <header class='site-header'>
       <div class='l-contain site-header__content'>
         <h1 class="site-title"><a class='site-logo' href="<?php echo get_site_url(); ?>">
           <?php bloginfo( 'name' ); ?>
         </a></h1>
-        <div class='site-nav-menu'>
-          <?php wp_nav_menu( array( 
-            'theme_location' => 'primary_menu', 
-            'walker' => new BRG_Menu_Walker()
-          ) ); ?>
-        </div>
+        
+        <?php wp_nav_menu( array( 
+          'theme_location'  => 'primary_menu', 
+          'container'       => 'nav',
+          'container_class' => 'site-nav-menu',
+          'walker'          => new BRG_Menu_Walker()
+        )); ?>
+      
         <button id="menu-toggle" class="mobile-only menu-toggle"><i class="fas fa-bars"></i></button>
       </div>
-    </div>
-    <div class='site-content'>
+    </header>
+    <main class='site-content'>
