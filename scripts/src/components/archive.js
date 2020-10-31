@@ -3,25 +3,31 @@ const dom = {
   postType: 'data-post-type',
   perPage: 'data-per-page',
   pagination: 'data-pagination',
-  paginationNext: 'data-pagination-next',
-  paginationPrev: 'data-pagination-prev',
   postWrapper: 'data-post-wrapper',
 };
 
-const setupPagination = (pageOn, perPage, numberPosts) => {
-  const numberPages = Math.ceil(numberPosts / perPage);
+const setupPagination = (data) => {
+  const paginationWrapper = document.querySelector(`[${dom.pagination}]`);
+  const base = `${window.location.origin}/${window.location.pathname}`;
+  const previousPage = `<a href="${base}?page-on=${data.previous}" class="pagination__link">Previous Page</a>`;
+  const nextPage = `<a href="${base}?page-on=${data.next}" class="pagination__link">Next Page</a>`;
+  
+  paginationWrapper.innerHTML = `<div class="pagination">
+    ${ data.previous ? previousPage : '' }
+    ${ data.next ? nextPage : '' }
+  </div>`;
 };
 
 const fetchPage = (type, page, perPage, container) => {
   const postContainer = container.querySelector(`[${dom.postWrapper}]`);
-  fetch(`/guten/wp-json/brg/posts/${type}/${perPage}/${page}`)
+  const pageOn = parseInt(page, 10) - 1;
+  fetch(`/guten/wp-json/brg/posts/${type}/${perPage}/${pageOn}`)
     .then((blob) => blob.json())
     .then((dataJSON) => {
       const data = JSON.parse(dataJSON);
-      container.setAttribute('data-page-on', page);
       postContainer.innerHTML = '';
       data.posts.forEach((post, index) => buildPostTile(post, postContainer, 200 * index));
-      setupPagination(page, perPage, data.numberPosts);
+      setupPagination(data);
     });
 };
 
@@ -34,38 +40,11 @@ const buildPostTile = (postJSON, postContainer, delay) => {
   setTimeout(() => postContainer.appendChild(newArticle), delay);
 };
 
-const getCurrentPage = (container) => {
-  return parseInt(container.getAttribute('data-page-on'), 10);
-};
-
-const setupBasePagination = (container, postType, perPage) => {
-  const paginationWrapper = container.querySelector(`[${dom.pagination}]`);
-  
-  const prevButton = document.createElement('button');
-  prevButton.classList.add('pagination__button');
-  prevButton.innerHTML = 'Previous Page';
-  prevButton.addEventListener('click', () => {
-    const currentPage = getCurrentPage(container);
-    fetchPage(postType, currentPage - 1, perPage, container);
-  });
-
-  const nextButton = document.createElement('button');
-  nextButton.classList.add('pagination__button');
-  nextButton.innerHTML = 'Next Page';
-  nextButton.addEventListener('click', () => {
-    const currentPage = getCurrentPage(container);
-    fetchPage(postType, currentPage + 1, perPage, container);
-  });
-
-  paginationWrapper.appendChild(prevButton);
-  paginationWrapper.appendChild(nextButton);
-}
-
 const setupArchiveContainer = (container) => {
   const perPage  = container.getAttribute(dom.perPage);
   const postType = container.getAttribute(dom.postType);
-  fetchPage(postType, 0, perPage, container);
-  setupBasePagination(container, postType, perPage);
+  const pageOn   = window.themeData.blogPage || 1;
+  fetchPage(postType, pageOn, perPage, container);
 };
 
 const setup = () => {

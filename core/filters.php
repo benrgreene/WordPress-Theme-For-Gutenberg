@@ -34,3 +34,10 @@ function brg_add_theme_scripts() {
   // Scripts
   wp_enqueue_script( 'brg-theme-script', get_template_directory_uri() . '/assets/index.build.js', array(), false, true );  
 }
+
+// adds our custom blog pagination parameter
+add_filter( 'query_vars', 'brg_add_custom_query_var' );
+function brg_add_custom_query_var( $vars ){
+  $vars[] = "page-on";
+  return $vars;
+}

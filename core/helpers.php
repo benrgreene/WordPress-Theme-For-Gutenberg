@@ -1,6 +1,6 @@
 <?php
 
-// the 
+// site title
 function brg_the_title() {
   wp_title(''); 
   if( wp_title( '', false ) ) { 
